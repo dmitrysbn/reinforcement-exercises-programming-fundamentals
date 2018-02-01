@@ -19,5 +19,34 @@ end
 direction_111 = show("111")[:direction]
 frequency_80B = show("80B")[:frequency]
 direction_610 = show("610")[:direction]
-# [:direction]
-# puts show("111")
+
+initial_array = []
+
+@trains.each do |train|
+  if train[:direction] == "north"
+    initial_array << train[:train]
+  end
+end
+
+@trains.each do |train|
+  if train[:direction] == "east"
+    initial_array << train[:train]
+  end
+end
+
+# Method
+def which_trains_go(trains, direction)
+  array = []
+  trains.each do |train|
+    if train[:direction] == direction
+      array << train[:train]
+    end
+  end
+  return array
+end
+
+puts which_trains_go(@trains, "north")
+puts which_trains_go(@trains, "east")
+
+@trains[0][:first_departure_time] = 6
+puts @trains
